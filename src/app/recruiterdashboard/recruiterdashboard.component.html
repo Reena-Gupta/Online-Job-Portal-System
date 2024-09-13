@@ -1,0 +1,12 @@
+<!-- app.component.html -->
+<div class="main-container">
+  <app-sidenav></app-sidenav>
+  <div class="content-container">
+    <!-- <div class="header">
+      <a routerLink="/profile" class="profile-link">Profile</a>
+    </div> -->
+    <router-outlet></router-outlet>
+  </div>
+  
+  <app-jobposted [email]="email"></app-jobposted>
+</div>

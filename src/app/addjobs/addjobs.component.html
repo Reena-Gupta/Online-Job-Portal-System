@@ -1,0 +1,60 @@
+<!-- addjobs.component.html -->
+<h2>Post a New Job and Find the Perfect Candidate"</h2>
+<form>
+  <div>
+    <label for="jobTitle">Job Title:</label>
+    <input id="jobTitle" type="text" [(ngModel)]="RjobpostingObj.job_title" name="job_title" required>
+  </div>
+  
+  <div>
+    <label for="jobLocation">Job Location:</label>
+    <input id="jobLocation" type="text" [(ngModel)]="RjobpostingObj.job_location" name="job_location" required>
+  </div>
+
+  <div>
+    <label for="contactPerson">Contact Person:</label>
+    <input id="contactPerson" type="text" [(ngModel)]="RjobpostingObj.contact_person" name="contact_person" required>
+  </div>
+
+  <div>
+    <label for="contactNumber">Contact Number:</label>
+    <input id="contactNumber" type="text" [(ngModel)]="RjobpostingObj.contact_number" name="contact_number" required>
+  </div>
+
+  <div>
+    <label for="functionalSkills">Functional Skills:</label>
+    <textarea id="functionalSkills" [(ngModel)]="RjobpostingObj.functional_skills" name="functional_skills"></textarea>
+  </div>
+
+  <div>
+    <label for="technicalSkills">Technical Skills:</label>
+    <textarea id="technicalSkills" [(ngModel)]="RjobpostingObj.technical_skills" name="technical_skills"></textarea>
+  </div>
+
+  <div>
+    <label for="jobDescription">Job Description:</label>
+    <textarea id="jobDescription" [(ngModel)]="RjobpostingObj.job_description" name="job_description" required></textarea>
+  </div>
+
+  <div>
+    <label for="jobType">Job Type:</label>
+    <input id="jobType" type="text" [(ngModel)]="RjobpostingObj.job_type" name="job_type">
+  </div>
+
+  <div>
+    <label for="lastDate">Last Date:</label>
+    <input id="lastDate" type="date" [(ngModel)]="RjobpostingObj.last_date" name="last_date">
+  </div>
+
+  <div>
+    <label for="salary">Salary:</label>
+    <input id="salary" type="number" [(ngModel)]="RjobpostingObj.salary" name="salary">
+  </div>
+
+  <div>
+    <label for="remail">Recruiter Email:</label>
+    <input id="remail" type="text" [(ngModel)]="RjobpostingObj.remail" name="recruiter_id">
+  </div>
+
+  <button type="button" (click)="addJobPosting()">Submit</button>
+</form>

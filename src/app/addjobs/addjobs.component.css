@@ -1,0 +1,95 @@
+/* Main page background */
+body {
+    background-color: #f0f4f8; /* Light blue-gray background for a clean look */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern and readable font */
+  }
+  
+  /* Form Container Styling */
+  form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    border: 1px solid #e0e6ed;
+    border-radius: 10px;
+    background-color: #ffffff; /* White background for a fresh and clean form area */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  form:hover {
+    transform: scale(1.01); /* Slight zoom effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Form Title Styling */
+  h2 {
+    text-align: center;
+    color: #333; /* Blue primary color */
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Form Fields Styling */
+  div {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Labels Styling */
+  label {
+    font-size: 15px;
+    color: #333; /* Dark gray for readability */
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  /* Input and Textarea Styling */
+  input, textarea {
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ccd1d9; /* Light gray border */
+    border-radius: 6px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+  }
+  
+  input:focus, textarea:focus {
+    border-color: #007bff; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2); /* Subtle blue shadow on focus */
+  }
+  
+  /* Button Styling */
+  button {
+    width: 100%;
+    padding: 14px;
+    background-color: #333; /* Blue background for the button */
+    color: #ffffff; /* White text */
+    font-size: 17px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  button:hover {
+    background-color: 555; /* Darker blue on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+  }
+  
+  /* Responsive Design Adjustments */
+  @media (max-width: 768px) {
+    form {
+      padding: 20px;
+    }
+  
+    h2 {
+      font-size: 22px;
+    }
+  
+    button {
+      font-size: 15px;
+    }
+  }
+  

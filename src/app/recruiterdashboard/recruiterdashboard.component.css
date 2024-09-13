@@ -1,0 +1,29 @@
+/* app.component.css */
+.main-container {
+    display: flex;
+  }
+  
+  .content-container {
+    margin-left: 200px;
+    padding: 20px;
+    flex: 1;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .profile-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .profile-link:hover {
+    text-decoration: underline;
+  }
+  
