@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs Applied</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Jobs Applied</h1>
+        <table class="job-table">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Job ID</th>
+                    <th>Job Title</th>
+                    <th>Job Description</th>
+                    <th>Application Date</th>
+                    <th>Status</th>
+                    <th>Resume Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let job of jobapplications">
+                    <td>{{ job.r_compname }}</td>
+                    <td>{{ job.job_id }}</td>
+                    <td>{{ job.jp_title }}</td>
+                    <td>{{ job.jp_description }}</td>
+                    <td>{{ job.application_date }}</td>
+                    <td>{{ job.status }}</td>
+                    <td>
+                        <!-- Only display the resume link if it's available and matches the job seeker email -->
+                        <a *ngIf="job.js_resumelink"
+                           class="view-resume-link"
+                           (click)="viewResume(job.js_email)"
+                           style="cursor: pointer;">
+                           View Resume
+                        </a>
+                        <span *ngIf="!job.js_resumelink">No Resume Available</span>
+                    </td>
+                    <!-- <a class="view-resume-link" *ngIf="resume" [href]="resume" target="_blank">View Resume</a>
+<span               *ngIf="!resume">No Resume Available</span> -->
+                </tr>
+            </tbody>
+        </table>
+        <app-jssidenav></app-jssidenav>
+        <router-outlet></router-outlet>
+    </div>
+</body>
+</html>

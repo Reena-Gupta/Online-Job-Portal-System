@@ -1,3 +1,44 @@
-<!-- job-posted.component.html -->
-<h2>Job Applications</h2>
-<p>Display the list of jobs applications here.</p>
+<div class="admin-board-container">
+    <div class="sidebar">
+        <h2>Recruiter Dashboard</h2>
+        <ul>
+          <li><a routerLink="/addjobs" routerLinkActive="active">Add Job</a></li>
+          <li><a routerLink="/jobapplication" routerLinkActive="active">Job Applications</a></li>
+          <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Welcome</h1>
+            <button class="logout-button" (click)="confirmLogout()">Logout</button>
+        </div>
+
+        <h1>Manage Your Active Job Application</h1>
+        <div class="job-card" *ngFor="let job of jobapplication">
+          <div class="card-container">
+            <div class="card-header">
+              <h3>{{ job.jp_title }}</h3>
+              <button class="btn-update" (click)="updateStatus(job.jp_title, 'Pending')" [disabled]="job.status === 'Accepted' || job.status === 'Rejected'">Pending</button>
+              <button class="btn-update" (click)="updateStatus(job.jp_title, 'Accepted')" [disabled]="job.status === 'Accepted'">Accepted</button>
+              <button class="btn-update" (click)="updateStatus(job.jp_title, 'Rejected')" [disabled]="job.status === 'Rejected'">Rejected</button>
+            </div>
+            <div class="card-body">
+              <div class="card-row">
+                <!-- <p><strong>Location:</strong> {{ job.js_add }}</p> -->
+                <p><strong>Job Type:</strong> {{ job.application_date }}</p>
+              </div>
+              <div class="card-row">
+                <p><strong>Status:</strong> {{ job.status }}</p>
+                <p><strong>Resume Link:</strong> {{ job.js_resumelink }}</p>
+              </div>
+              <div class="card-row">
+                <p><strong>Description:</strong> {{ job.jp_description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <router-outlet></router-outlet> <!-- Content will be loaded here -->
+    </div>
+  </div>

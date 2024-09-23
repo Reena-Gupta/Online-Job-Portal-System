@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Navbar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <!-- Sign-up Form -->
+        <div class="signup">
+            <form #signUpForm="ngForm">
+                <label for="chk" aria-hidden="true">Sign up</label>
+
+                <!-- Username Input -->
+                <input type="text" name="txt" placeholder="User name" [(ngModel)]="signUpObj.userName" #userName="ngModel" required>
+                <div *ngIf="userName.invalid && userName.touched">
+                    <small class="validation-message">Please enter a valid username.</small>
+                </div>
+
+                <!-- Email Input -->
+                <input type="email" name="email" placeholder="Email" [(ngModel)]="signUpObj.email" #email="ngModel" required email>
+                <div *ngIf="email.invalid && email.touched">
+                    <small class="validation-message">Please enter a valid email with '&#64;'.</small>
+                </div>
+
+                <!-- Password Input -->
+                <input type="password" name="pswd" placeholder="Password" [(ngModel)]="signUpObj.password" #password="ngModel" required minlength="5">
+                <div *ngIf="password.invalid && password.touched">
+                    <small class="validation-message">Password must be at least 5 characters long.</small>
+                </div>
+
+                <!-- Role Select -->
+                <select name="role" required [(ngModel)]="signUpObj.role" #role="ngModel">
+                    <option value="" disabled>Select Role</option>
+                    <option value="Employer">Employer</option>
+                    <option value="Jobseeker">Jobseeker</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <div *ngIf="role.invalid && role.touched">
+                    <small class="validation-message">Please select a role.</small>
+                </div>
+
+                <!-- Sign-up Button -->
+                <button type="button" (click)="onSignUp()">Sign up</button>
+            </form>
+        </div>
+
+        <!-- Login Form -->
+        <div class="login">
+            <form #loginForm="ngForm">
+                <label for="chk" aria-hidden="true">Login</label>
+
+                <!-- Email Input -->
+                <input type="text" name="na" placeholder="Email" [(ngModel)]="loginObj.email" #loginEmail="ngModel" required email>
+                <div *ngIf="loginEmail.invalid && loginEmail.touched" class="error">
+                    <small>Please enter a valid email with '&#64;'.</small>
+                </div>
+
+                <!-- Password Input -->
+                <input type="password" name="pass" placeholder="Password" [(ngModel)]="loginObj.password" #loginPassword="ngModel" required minlength="5">
+                <div *ngIf="loginPassword.invalid && loginPassword.touched" class="error">
+                    <small>Password must be at least 5 characters long.</small>
+                </div>
+
+                <!-- Login Button -->
+                <button type="button" (click)="onLogin()">Login</button>
+            </form>
+        </div>
+    </div>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            margin-left: 50px; 
+        }
+    </style>
+</body>
+</html>

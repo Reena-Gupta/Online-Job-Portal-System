@@ -47,7 +47,7 @@ export class FormComponent {
     localStorage.setItem('signUpUser', JSON.stringify(this.signUpUser));
     this.http.post(this.APIUrl+'RegisterRecruiters', this.signUpObj).subscribe(data  => {
       this.signUpObj = null;
-      alert("recruiters added successfully!");
+      alert("User Added Successfully!");
   });
  
   }  
@@ -67,8 +67,6 @@ recruiters :{
 }
  
 onLogin(): void {
-  // Assuming signUpUser is defined and contains users data
- // const isUserExist = this.signUpUser.find(m => m.username === this.loginObj.username && m.password === this.loginObj.password);
   localStorage.setItem('loginUserEmail', this.loginObj.email);
 
   //if (isUserExist) {
@@ -83,10 +81,9 @@ onLogin(): void {
         alert("Invalid credentials");
       }
     });
-  // } else {
-  //   alert("User does not exist");
-  // }
-}
- 
+  }
 
+  showAlert(message: string) {
+    alert(message);
+  }
 }

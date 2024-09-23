@@ -1,0 +1,45 @@
+<div class="container">
+    <!-- admin-board.component.html -->
+<div class="admin-board-container">
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+            <li><a routerLink="/adminrecruiters" routerLinkActive="active">Recruiters</a></li>
+            <li><a routerLink="/adminjp" routerLinkActive="active">View Job Postings</a></li>
+            <li><a routerLink="/adminjobposting" routerLinkActive="active">Add Job Postings</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Welcome, {{Username}}</h1>
+            <button class="logout-button" (click)="confirmLogout()">Logout</button>
+        </div>
+
+        <div class="recruiters-header">
+            <h2>Job Seekers List</h2>
+        </div>
+        <div class="recruiters-cards">
+            <div class="card" *ngFor="let js of jobseekers">
+                <div class="card-header">
+                    <h3>{{ js.name }}</h3>
+                    <h3>{{ js.designation }}</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong>Email :</strong> {{ js.email }}</p>
+                    <p><strong> Phone Number :</strong> {{ js.phone_number }}</p>
+                    <p><strong>Address :</strong> {{ js.address }}</p>
+                    <p><strong>Education :</strong> {{ js.education_bg }}</p>
+                    <p><strong>Work Experience :</strong> {{ js.work_experience }}</p>
+                    <p><strong>Skills :</strong> {{js.skills }}</p>
+                    <p><strong>Resume Link :</strong> {{ js.resume_link }}</p>
+                    <p><strong>Created At :</strong> {{ js.created_at }}</p>
+                    <button class="delete-button" (click)="deletejs(js.email)">Delete</button> <!-- Delete button -->
+                </div>
+            </div>
+        </div>
+        
+        <router-outlet></router-outlet> <!-- Content will be loaded here -->
+    </div>
+</div>
+</div>

@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="admin-board-container">
+        <div class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a routerLink="/adminrecruiters" routerLinkActive="active">Recruiters</a></li>
+                <li><a routerLink="/adminjs" routerLinkActive="active">View Job Seekers</a></li>
+                <li><a routerLink="/adminjobposting" routerLinkActive="active">Add Job Postings</a></li>
+                <li><a routerLink="/app-admindashboard" routerLinkActive="active">Admin Dashboard</a></li>
+            </ul>
+        </div>
+    
+        <div class="main-content">
+            <div class="header">
+                <h1>Welcome, {{Username}}</h1>
+                <button class="logout-button" (click)="confirmLogout()">Logout</button>
+            </div>
+
+            <div class="recruiters-header">
+                <h2>Job Postings List</h2>
+            </div>
+            <div class="recruiters-cards">
+                <div class="card" *ngFor="let jp of jobpostings">
+                    <div class="card-header">
+                        <h3>{{ jp.remail }}</h3>
+                        <h3>{{ jp.job_title }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Location</strong> {{ jp.job_location }}</p>
+                        <p><strong>Contact Person:</strong> {{ jp.contact_person }}</p>
+                        <p><strong>Contact Number:</strong> {{ jp.contact_number }}</p>
+                        <p><strong>Functional Skills:</strong> {{ jp.functional_skills }}</p>
+                        <p><strong>Technical Skills:</strong> {{ jp.technical_skills }}</p>
+                        <p><strong>Job Description:</strong> {{ jp.job_description }}</p>
+                        <p><strong>Job Type:</strong> {{ jp.job_type }}</p>
+                        <p><strong>Last Date:</strong> {{ jp.last_date }}</p>
+                        <p><strong>Salary:</strong> {{ jp.salary }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+            <router-outlet></router-outlet> <!-- Content will be loaded here -->
+        </div>
+    </div>
+    
+    

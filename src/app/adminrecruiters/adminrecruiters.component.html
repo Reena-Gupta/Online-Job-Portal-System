@@ -1,0 +1,40 @@
+<div class="container">
+    <!-- admin-board.component.html -->
+<div class="admin-board-container">
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+            <li><a routerLink="/adminrecruiters" routerLinkActive="active">Recruiters</a></li>
+            <li><a routerLink="/adminjs" routerLinkActive="active">Job Seekers</a></li>
+            <li><a routerLink="/adminjp" routerLinkActive="active">View Job Postings</a></li>
+            <li><a routerLink="/adminjobposting" routerLinkActive="active">Add Job Postings</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Welcome, {{Username}}</h1>
+            <button class="logout-button" (click)="confirmLogout()">Logout</button>
+        </div>
+        
+        <div class="recruiters-header">
+            <h2>Recruiters List</h2>
+        </div>
+        <div class="recruiters-cards">
+            <div class="card" *ngFor="let recruiter of recruiters">
+                <div class="card-header">
+                    <h3>{{ recruiter.company_name }}</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong>Email:</strong> {{ recruiter.email }}</p>
+                    <p><strong>Contact Number:</strong> {{ recruiter.contact_number }}</p>
+                    <p><strong>Location:</strong> {{ recruiter.location }}</p>
+                    <button class="delete-button" (click)="deleteRecruiter(recruiter.email)">Delete</button> <!-- Delete button -->
+                </div>
+            </div>
+        </div>
+
+        <router-outlet></router-outlet> <!-- Content will be loaded here -->
+    </div>
+</div>
+</div>

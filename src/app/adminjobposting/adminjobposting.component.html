@@ -1,0 +1,116 @@
+<div class="container">
+    <div class="admin-board-container">
+        <div class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a routerLink="/adminrecruiters" routerLinkActive="active">Recruiters</a></li>
+                <li><a routerLink="/adminjs" routerLinkActive="active">View Job Seekers</a></li>
+                <li><a routerLink="/adminjobposting" routerLinkActive="active">Add Job Postings</a></li>
+               </ul>
+        </div>
+    <div class="main-content">
+            <div class="header">
+                <h1>Welcome, {{Username}}</h1>
+                <button class="logout-button" (click)="confirmLogout()">Logout</button>
+            </div>
+
+            <div class="recruiters-header">
+                <h2>Job Postings List</h2>
+            </div>
+            <div class="form-container">
+    <form (ngSubmit)="onSubmit()" #jobForm="ngForm">
+        <div class="form-group">
+            <label for="jobTitle">Job Title</label>
+            <input type="text" id="jobTitle" class="form-control" name="jobTitle" [(ngModel)]="jobPosting.job_title" required minlength="3" maxlength="255" #jobTitle="ngModel">
+            <div *ngIf="jobTitle.invalid && jobTitle.touched" class="error-message">
+                Job Title is required (min 3 characters).
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="jobLocation">Job Location</label>
+            <input type="text" id="jobLocation" class="form-control" name="jobLocation" [(ngModel)]="jobPosting.job_location" required #jobLocation="ngModel">
+            <div *ngIf="jobLocation.invalid && jobLocation.touched" class="error-message">
+                Job Location is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="contactPerson">Contact Person</label>
+            <input type="text" id="contactPerson" class="form-control" name="contactPerson" [(ngModel)]="jobPosting.contact_person" required #contactPerson="ngModel">
+            <div *ngIf="contactPerson.invalid && contactPerson.touched" class="error-message">
+                Contact Person is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input type="text" id="contactNumber" class="form-control" name="contactNumber" [(ngModel)]="jobPosting.contact_number" required pattern="^[0-9-]+$" #contactNumber="ngModel">
+            <div *ngIf="contactNumber.invalid && contactNumber.touched" class="error-message">
+                Valid Contact Number is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="functionalSkills">Functional Skills</label>
+            <textarea id="functionalSkills" class="form-control" name="functionalSkills" [(ngModel)]="jobPosting.functional_skills" required #functionalSkills="ngModel"></textarea>
+            <div *ngIf="functionalSkills.invalid && functionalSkills.touched" class="error-message">
+                Functional Skills are required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="technicalSkills">Technical Skills</label>
+            <textarea id="technicalSkills" class="form-control" name="technicalSkills" [(ngModel)]="jobPosting.technical_skills" required #technicalSkills="ngModel"></textarea>
+            <div *ngIf="technicalSkills.invalid && technicalSkills.touched" class="error-message">
+                Technical Skills are required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="jobDescription">Job Description</label>
+            <textarea id="jobDescription" class="form-control" name="jobDescription" [(ngModel)]="jobPosting.job_description" required #jobDescription="ngModel"></textarea>
+            <div *ngIf="jobDescription.invalid && jobDescription.touched" class="error-message">
+                Job Description is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="jobType">Job Type</label>
+            <input type="text" id="jobType" class="form-control" name="jobType" [(ngModel)]="jobPosting.job_type">
+        </div>
+
+        <div class="form-group">
+            <label for="lastDate">Last Date to Apply</label>
+            <input type="date" id="lastDate" class="form-control" name="lastDate" [(ngModel)]="jobPosting.last_date" required #lastDate="ngModel">
+            <div *ngIf="lastDate.invalid && lastDate.touched" class="error-message">
+                Last Date is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="number" id="salary" class="form-control" name="salary" [(ngModel)]="jobPosting.salary">
+        </div>
+
+        <div class="form-group">
+            <label for="remail">Recruiter Email</label>
+            <input type="email" id="remail" class="form-control" name="remail" [(ngModel)]="jobPosting.remail" required #remail="ngModel">
+            <div *ngIf="remail.invalid && remail.touched" class="error-message">
+                Recruiter Email is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="jpCompanyname">Company Name</label>
+            <input type="text" id="jpCompanyname" class="form-control" name="jpCompanyname" [(ngModel)]="jobPosting.jp_companyname" required #jpCompanyname="ngModel">
+            <div *ngIf="jpCompanyname.invalid && jpCompanyname.touched" class="error-message">
+                Company Name is required.
+            </div>
+        </div>
+
+        <button type="submit" class="submit-button" [disabled]="jobForm.invalid">Submit</button>
+    </form>
+</div>
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,149 @@
+/* Header Styling */
+.header {
+    background: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 15px 20px;
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 20px;
+    position: relative;
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+ 
+.header:hover {
+    background: #333; /* Dark grey background on hover */
+}
+ 
+.header a {
+    color: #fff; /* White text for links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth color transition for links */
+}
+ 
+.header a:hover {
+    color: #ccc; /* Light grey text on hover */
+}
+ 
+ 
+/* Form Container Styling */
+.container.emp-profile {
+    background: #fff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    padding: 20px;
+    max-width: 900px; /* Max width for larger screens */
+    margin: 0 auto; /* Center container */
+    color: #333; /* Dark grey text color */
+}
+ 
+/* Form Header Styling */
+.profile-head h5 {
+    font-size: 1.5rem;
+    color: #000; /* Black text */
+}
+ 
+.profile-head h6 {
+    font-size: 1.2rem;
+    color: #666; /* Dark grey text */
+}
+ 
+/* Profile Edit Button Styling */
+.profile-edit-btn {
+    background-color: #333; /* Dark grey */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+ 
+.profile-edit-btn:hover {
+    background-color: #555; /* Slightly lighter grey on hover */
+}
+ 
+/* Delete Button Styling */
+.delete-btn {
+    background-color: #333; /* Red */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s; /* Smooth background color transition */
+    margin-left: 10px; /* Space between edit and delete buttons */
+}
+ 
+.delete-btn:hover {
+    background-color: #555; /* Darker red on hover */
+}
+ 
+/* Input Field Styling */
+input.form-control {
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light grey border */
+    padding: 10px;
+    transition: border-color 0.3s; /* Smooth border color transition */
+    background-color: #fff; /* White background for inputs */
+}
+ 
+input.form-control:focus {
+    border-color: #000; /* Black border on focus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+ 
+/* Label Styling */
+label {
+    font-weight: bold;
+    color: #333; /* Dark grey text */
+}
+ 
+/* Row Styling */
+.row {
+    margin-bottom: 15px;
+}
+ 
+/* Tab Content Styling */
+.tab-content {
+    padding-top: 20px;
+}
+ 
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .container.emp-profile {
+        padding: 15px;
+    }
+ 
+    .profile-head h5,
+    .profile-head h6 {
+        text-align: center;
+    }
+}
+
+
+.header h1 {
+    margin: 0;
+    font-size: 1.8em;
+  }
+  
+  .logout-button button {
+    background-color: #333; /* Dark grey */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 700px;
+  }
+  
+  .logout-button button:hover {
+    background-color: #555; /* Lighter grey on hover */
+  }
+  .validation-message {
+    color: red;
+    font-size: 0.875rem; /* Adjust font size as needed */
+  }
+  

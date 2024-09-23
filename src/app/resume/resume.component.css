@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+ 
+  html, body {
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    /* color: #333; */
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Slightly off-white background */
+  }
+ 
+  .container {
+    max-width: 700px;  
+    background: #fff;
+    margin: 40px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0; /* Light grey border */
+    border-radius: 8px;  
+    padding: 20px;
+  }
+ 
+  .header {
+    border-bottom: 1px solid #e0e0e0; /* Light grey line separating header from the rest */
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+ 
+  .full-name {
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+ 
+  .first-name, .last-name {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+  }
+ 
+  .first-name {
+    background-color: #000; /* Black background for first name */
+  }
+ 
+  .last-name {
+    background-color: #333; /* Dark grey background for last name */
+  }
+ 
+  .contact-info {
+    margin-bottom: 20px;
+    color: #666; /* Dark grey text for contact information */
+  }
+ 
+  .email, .phone {
+    font-weight: 500;
+  }
+ 
+  .separator {
+    height: 10px;
+    display: inline-block;
+    border-left: 2px solid #666;
+    margin: 0 10px;
+  }
+ 
+  .position {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 10px;
+    text-transform: uppercase;
+    color: #000;
+  }
+ 
+  .details {
+    line-height: 1.8;
+  }
+ 
+  .section {
+    margin-bottom: 30px;  
+  }
+ 
+  .section:last-of-type {
+    margin-bottom: 0;  
+  }
+ 
+  .section__title {
+    letter-spacing: 1px;
+    color: #000; /* Black for section titles */
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+ 
+  .section__list-item {
+    margin-bottom: 20px;
+  }
+ 
+  .section__list-item:last-of-type {
+    margin-bottom: 0;
+  }
+ 
+  .name {
+    font-weight: bold;
+    background-color: #333; /* Dark grey background for names */
+    color: #fff; /* White text color */
+    padding: 8px;
+    border-radius: 4px;
+  }
+ 
+  a {
+    text-decoration: none;
+    color: #000; /* Black links */
+  }
+ 
+  a:hover {
+    text-decoration: underline;
+    color: #333; /* Slightly lighter black for hover effect */
+  }
+ 
+  .skills {
+    margin-top: 20px;
+  }
+ 
+  .skills__item {
+    margin-bottom: 10px;
+  }
+ 
+  .skills__item .name {
+    background-color: #2e2a2a; /* Dark grey background for skill names */
+    color: #fff; /* White text color */
+    padding: 8px;
+    border-radius: 4px;
+  }
+ 
+  .header {
+    border-bottom: 1px solid #281a1a; /* Light grey line separating header from the rest */
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }

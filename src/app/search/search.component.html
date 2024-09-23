@@ -1,0 +1,48 @@
+<div class="layout-container">
+    <app-jssidenav></app-jssidenav> <!-- Sidebar component -->
+ 
+    <div class="main-content">
+        <!-- Search bar container -->
+        <div class="search-bar-container">
+            <input
+                type="text"
+                placeholder="Search by Company name or Job title"
+                [(ngModel)]="searchQuery"
+                (ngModelChange)="onSearchChange()"
+                aria-label="Search job postings"
+            />
+        </div>
+ 
+        <!-- Display job postings -->
+        <div class="job-card" *ngFor="let job of filteredJobPostings">
+            <div class="card-container">
+                <div class="card-header">
+                    <h3>{{ job.job_title }}</h3>
+                    <button class="apply-button" (click)="applyForJob(job.job_title, job.jp_companyname, job.remail, job.job_id)">{{ job.hasApplied ? 'Applied' : 'Apply' }}</button>
+                </div>
+                <div class="card-body">
+                    <div class="card-row">
+                        <p><strong>Company:</strong> {{ job.jp_companyname || 'N/A' }}</p>
+                        <p><strong>Location:</strong> {{ job.job_location || 'N/A' }}</p>
+                        <p><strong>Job Type:</strong> {{ job.job_type || 'N/A' }}</p>
+                    </div>
+                    <div class="card-row">
+                        <p><strong>Contact Person:</strong> {{ job.contact_person || 'N/A' }}</p>
+                        <p><strong>Contact Number:</strong> {{ job.contact_number || 'N/A' }}</p>
+                    </div>
+                    <div class="card-row">
+                        <p><strong>Technical Skills:</strong> {{ job.technical_skills || 'N/A' }}</p>
+                        <p><strong>Functional Skills:</strong> {{ job.functional_skills || 'N/A' }}</p>
+                    </div>
+                    <div class="card-row">
+                        <p><strong>Job Description:</strong> {{ job.job_description || 'N/A' }}</p>
+                    </div>
+                    <div class="card-row">
+                        <p><strong>Salary:</strong> {{ job.salary || 'N/A' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 

@@ -17,7 +17,7 @@ export class JobpostedComponent implements OnInit {
   
   private apiUrl = 'https://localhost:7165/api/JobPostings/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {  
     this.recruiteremail = localStorage.getItem('loginUserEmail');
@@ -25,23 +25,46 @@ export class JobpostedComponent implements OnInit {
   }
 
   fetchJobPostings(): void {
-    console.log(this.apiUrl+'GetJobPostingById/'+this.recruiteremail)
+    //console.log(this.apiUrl+'GetJobPostingById/'+this.recruiteremail)
     this.http.get(this.apiUrl+'GetJobPostingById/'+this.recruiteremail).subscribe(
       data => { 
-        console.log(data);
+        //console.log(data);
         this.jobpostings = data;
       }
     );
   }
 
-  updateJobPosting(job: any): void {
-    // Logic to update job posting
-    alert('Update functionality to be implemented.');
-  }
-
   deleteJobPosting(job: any): void {
-    alert('Delete functionality to be implemented.');
+    const jobTitle = job.job_title;
+
+    if (!jobTitle || !this.recruiteremail) {
+        alert('Invalid job details.');
+        return;
+    }
+
+    const url = `${this.apiUrl}DeleteJobPosting/${jobTitle}/${this.recruiteremail}`;
+    console.log(url);
+
+    // Call the DELETE endpoint with job title and recruiter email
+    this.http.delete(url).subscribe(
+        data => { 
+            alert("Posting deleted successfully");
+            console.log(data);
+            this.fetchJobPostings();
+        },
+        error => {
+            //console.error('There was an error!', error);
+            alert('Error while deleting... Try again');
+            this.fetchJobPostings();
+        }
+    );
+}
+
+  confirmLogout(): void {
+    if (confirm("Do you really want to logout?")) {
+      localStorage.removeItem('loginadmin');
+      this.router.navigate(['/']); // Redirect to homepage
+    }
   }
 
-  
 }

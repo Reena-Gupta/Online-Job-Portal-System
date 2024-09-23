@@ -1,60 +1,114 @@
-<!-- addjobs.component.html -->
-<h2>Post a New Job and Find the Perfect Candidate"</h2>
-<form>
-  <div>
-    <label for="jobTitle">Job Title:</label>
-    <input id="jobTitle" type="text" [(ngModel)]="RjobpostingObj.job_title" name="job_title" required>
-  </div>
-  
-  <div>
-    <label for="jobLocation">Job Location:</label>
-    <input id="jobLocation" type="text" [(ngModel)]="RjobpostingObj.job_location" name="job_location" required>
+<div class="admin-board-container">
+  <div class="sidebar">
+    <h2>Recruiter Dashboard</h2>
+    <ul>
+      <li><a routerLink="/jobposted" routerLinkActive="active">Job Posted</a></li>
+      <li><a routerLink="/jobapplication" routerLinkActive="active">Job Applications</a></li>
+      <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+    </ul>
   </div>
 
-  <div>
-    <label for="contactPerson">Contact Person:</label>
-    <input id="contactPerson" type="text" [(ngModel)]="RjobpostingObj.contact_person" name="contact_person" required>
-  </div>
+  <div class="main-content">
+    <div class="header">
+      <h1>Welcome</h1>
+      <div class="logout-button">
+        <button class="logout-btn" (click)="confirmLogout()">Logout</button>
+      </div>
+    </div>
 
-  <div>
-    <label for="contactNumber">Contact Number:</label>
-    <input id="contactNumber" type="text" [(ngModel)]="RjobpostingObj.contact_number" name="contact_number" required>
-  </div>
+    <h2>Post a New Job and Find the Perfect Candidate</h2>
+    
+    <form #jobForm="ngForm">
+      <div>
+        <label for="jobTitle">Job Title:</label>
+        <input id="jobTitle" type="text" [(ngModel)]="RjobpostingObj.job_title" name="job_title" required #jobTitle="ngModel">
+        <div *ngIf="jobTitle.invalid && jobTitle.touched" class="validation-message">
+          Job Title is required.
+        </div>
+      </div>
 
-  <div>
-    <label for="functionalSkills">Functional Skills:</label>
-    <textarea id="functionalSkills" [(ngModel)]="RjobpostingObj.functional_skills" name="functional_skills"></textarea>
-  </div>
+      <div>
+        <label for="jobLocation">Job Location:</label>
+        <input id="jobLocation" type="text" [(ngModel)]="RjobpostingObj.job_location" name="job_location" required #jobLocation="ngModel">
+        <div *ngIf="jobLocation.invalid && jobLocation.touched" class="validation-message">
+          Job Location is required.
+        </div>
+      </div>
 
-  <div>
-    <label for="technicalSkills">Technical Skills:</label>
-    <textarea id="technicalSkills" [(ngModel)]="RjobpostingObj.technical_skills" name="technical_skills"></textarea>
-  </div>
+      <div>
+        <label for="contactPerson">Contact Person:</label>
+        <input id="contactPerson" type="text" [(ngModel)]="RjobpostingObj.contact_person" name="contact_person" required #contactPerson="ngModel">
+        <div *ngIf="contactPerson.invalid && contactPerson.touched" class="validation-message">
+          Contact Person is required.
+        </div>
+      </div>
 
-  <div>
-    <label for="jobDescription">Job Description:</label>
-    <textarea id="jobDescription" [(ngModel)]="RjobpostingObj.job_description" name="job_description" required></textarea>
-  </div>
+      <div>
+        <label for="contactNumber">Contact Number:</label>
+        <input id="contactNumber" type="text" [(ngModel)]="RjobpostingObj.contact_number" name="contact_number" required minlength="10" maxlength="10" #contactNumber="ngModel">
+        <div *ngIf="contactNumber.invalid && contactNumber.touched" class="validation-message">
+          Contact Number must be 10 digits.
+        </div>
+      </div>
 
-  <div>
-    <label for="jobType">Job Type:</label>
-    <input id="jobType" type="text" [(ngModel)]="RjobpostingObj.job_type" name="job_type">
-  </div>
+      <div>
+        <label for="functionalSkills">Functional Skills:</label>
+        <textarea id="functionalSkills" [(ngModel)]="RjobpostingObj.functional_skills" name="functional_skills"></textarea>
+      </div>
 
-  <div>
-    <label for="lastDate">Last Date:</label>
-    <input id="lastDate" type="date" [(ngModel)]="RjobpostingObj.last_date" name="last_date">
-  </div>
+      <div>
+        <label for="technicalSkills">Technical Skills:</label>
+        <textarea id="technicalSkills" [(ngModel)]="RjobpostingObj.technical_skills" name="technical_skills"></textarea>
+      </div>
 
-  <div>
-    <label for="salary">Salary:</label>
-    <input id="salary" type="number" [(ngModel)]="RjobpostingObj.salary" name="salary">
-  </div>
+      <div>
+        <label for="jobDescription">Job Description:</label>
+        <textarea id="jobDescription" [(ngModel)]="RjobpostingObj.job_description" name="job_description" required #jobDescription="ngModel"></textarea>
+        <div *ngIf="jobDescription.invalid && jobDescription.touched" class="validation-message">
+          Job Description is required.
+        </div>
+      </div>
 
-  <div>
-    <label for="remail">Recruiter Email:</label>
-    <input id="remail" type="text" [(ngModel)]="RjobpostingObj.remail" name="recruiter_id">
-  </div>
+      <div>
+        <label for="jobType">Job Type:</label>
+        <input id="jobType" type="text" [(ngModel)]="RjobpostingObj.job_type" name="job_type">
+      </div>
 
-  <button type="button" (click)="addJobPosting()">Submit</button>
-</form>
+      <div>
+        <label for="lastDate">Last Date:</label>
+        <input id="lastDate" type="date" [(ngModel)]="RjobpostingObj.last_date" name="last_date" required #lastDate="ngModel">
+        <div *ngIf="lastDate.invalid && lastDate.touched || isLastDateInvalid()" class="validation-message">
+          Last Date should be today or in the future.
+        </div>
+      </div>
+
+      <div>
+        <label for="salary">Salary:</label>
+        <input id="salary" type="number" [(ngModel)]="RjobpostingObj.salary" name="salary" required min="1" #salary="ngModel">
+        <div *ngIf="salary.invalid && salary.touched" class="validation-message">
+          Salary must be greater than 0.
+        </div>
+      </div>
+
+      <div>
+        <label for="remail">Recruiter Email:</label>
+        <input id="remail" type="email" [(ngModel)]="RjobpostingObj.remail" name="recruiter_id" required #remail="ngModel">
+        <div *ngIf="remail.invalid && remail.touched" class="validation-message">
+          Valid Recruiter Email is required.
+        </div>
+      </div>
+
+      <div>
+        <label for="jp_companyname">Company Name:</label>
+        <input id="jp_companyname" type="text" [(ngModel)]="RjobpostingObj.jp_companyname" name="jp_companyname" required #companyName="ngModel">
+        <div *ngIf="companyName.invalid && companyName.touched" class="validation-message">
+          Company Name is required.
+        </div>
+      </div>
+
+      <button type="button" (click)="addJobPosting()" class="submit-btn">Submit</button>
+    </form>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>

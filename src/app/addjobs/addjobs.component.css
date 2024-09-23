@@ -1,95 +1,200 @@
-/* Main page background */
+/* Global Styles */
+.main-content h2 {
+  margin-left: 190px; /* Adjust this value to move the h2 further to the right */
+  font-size: 1.6em;
+  color: #333; /* Darker text color */
+}
+
 body {
-    background-color: #f0f4f8; /* Light blue-gray background for a clean look */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern and readable font */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F5F5F5; /* Light background */
+}
+
+/* Admin Board Container */
+.admin-board-container {
+  display: flex;
+  flex-direction: row; /* Sidebar and content side by side */
+  min-height: 100vh; /* Full screen height */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px; /* Adjusted width */
+  background-color: #2B2B2B; /* Dark grey background */
+  color: #E0E0E0; /* Light grey text */
+  padding: 20px;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #FFFFFF;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: #E0E0E0; /* Light grey text */
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  background-color: #3C3C3C; /* Slightly lighter on hover */
+  color: #FFFFFF;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 300px; /* Adjusted space for sidebar */
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #FFFFFF; /* White background for content */
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #F0F0F0; /* Light grey background */
+  border-bottom: 1px solid #DDD;
+  margin-left: 40px; /* Additional margin to prevent overlap */
+  width: calc(100% - 100px); /* Width minus sidebar width and margin */
+  z-index: 1;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.logout-button button {
+  background-color: #333; /* Dark grey */
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button button:hover {
+  background-color: #555; /* Lighter grey on hover */
+}
+
+/* Form Styles */
+form {
+  background-color: #F9F9F9; /* Light background for form */
+  padding: 30px;
+  margin: 40px 0 0 40px; /* Added margin to move the form right */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  border-radius: 8px;
+  max-width: 800px; /* Max form width */
+}
+
+form div {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333; /* Darker text color */
+}
+
+form input, form textarea, form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+form textarea {
+  resize: vertical; /* Allow vertical resize only */
+  min-height: 100px;
+}
+
+form input[type="date"], form input[type="number"] {
+  padding: 10px;
+}
+
+form button {
+  background-color: #333; /* Dark button */
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
+}
+
+form button:hover {
+  background-color: #555; /* Slightly lighter on hover */
+  transform: scale(1.05); /* Slight scaling effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+      width: 200px;
   }
   
-  /* Form Container Styling */
+  .main-content {
+      margin-left: 220px;
+  }
+  
+  .header {
+      margin-left: 20px;
+      width: calc(100% - 220px);
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+      width: 180px;
+  }
+  
+  .main-content {
+      margin-left: 180px;
+  }
+  
+  .header {
+      margin-left: 20px;
+      width: calc(100% - 180px);
+  }
+  
   form {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 25px;
-    border: 1px solid #e0e6ed;
-    border-radius: 10px;
-    background-color: #ffffff; /* White background for a fresh and clean form area */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+      margin-left: 20px;
+      width: 90%;
   }
-  
-  form:hover {
-    transform: scale(1.01); /* Slight zoom effect on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Form Title Styling */
-  h2 {
-    text-align: center;
-    color: #333; /* Blue primary color */
-    font-size: 26px;
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-  
-  /* Form Fields Styling */
-  div {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Labels Styling */
-  label {
-    font-size: 15px;
-    color: #333; /* Dark gray for readability */
-    margin-bottom: 5px;
-    font-weight: 600;
-  }
-  
-  /* Input and Textarea Styling */
-  input, textarea {
-    padding: 12px;
-    font-size: 15px;
-    border: 1px solid #ccd1d9; /* Light gray border */
-    border-radius: 6px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    outline: none;
-  }
-  
-  input:focus, textarea:focus {
-    border-color: #007bff; /* Blue border on focus */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2); /* Subtle blue shadow on focus */
-  }
-  
-  /* Button Styling */
-  button {
-    width: 100%;
-    padding: 14px;
-    background-color: #333; /* Blue background for the button */
-    color: #ffffff; /* White text */
-    font-size: 17px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  button:hover {
-    background-color: 555; /* Darker blue on hover */
-    transform: translateY(-2px); /* Lift effect on hover */
-  }
-  
-  /* Responsive Design Adjustments */
-  @media (max-width: 768px) {
-    form {
-      padding: 20px;
-    }
-  
-    h2 {
-      font-size: 22px;
-    }
-  
-    button {
-      font-size: 15px;
-    }
-  }
-  
+}
+
+.validation-message{
+  color :red;
+}

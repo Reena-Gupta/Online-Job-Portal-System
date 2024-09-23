@@ -1,0 +1,59 @@
+<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+ 
+<div class="container" *ngIf="jobSeeker">
+  <div class="header">
+    <div class="full-name">
+        <span class="name">{{ jobSeeker.name }}</span>
+    </div>
+    <div class="contact-info">
+      <span class="email">Email: </span>
+      <span class="email-val">{{ jobSeeker.email }}</span>
+      <span class="separator"></span>
+      <span class="phone">Phone: </span>
+      <span class="phone-val">{{ jobSeeker.phone_number }}</span>
+    </div>
+   
+    <div class="about">
+      <span class="position">{{ jobSeeker.designation }}</span>
+    </div>
+  </div>
+ 
+  <div class="details">
+    <div class="section">
+      <div class="section__title">Address</div>
+      <div class="section__list">
+        <div class="section__list-item">
+          <div class="name">{{ jobSeeker.address }}</div>
+        </div>
+      </div>
+    </div>
+   
+    <div class="section">
+      <div class="section__title">Education Background</div>
+      <div class="section__list">
+        <div class="section__list-item">
+          <div class="name">{{ jobSeeker.education_bg }}</div>
+        </div>
+      </div>
+    </div>
+   
+    <div class="section">
+      <div class="section__title">Work Experience</div>
+      <div class="section__list">
+        <div class="section__list-item">
+          <div class="name">{{ jobSeeker.work_experience }}</div>
+        </div>
+      </div>
+    </div>
+   
+    <div class="section">
+      <div class="section__title">Skills</div>
+      <div class="skills">
+        <div class="skills__item" *ngFor="let skill of jobSeeker.skills.split(', ')">
+          <div class="name">{{ skill }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
